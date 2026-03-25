@@ -4,6 +4,7 @@ import QuizPage from "./components/QuizPage"
 
 function App() {
   const [hasStarted, setHasStarted] = useState(false)
+  const [loading, setLoading] = useState(false)
 
 
   function handleStartQuiz() {
@@ -17,7 +18,7 @@ function App() {
         <StartPage onStart={handleStartQuiz} />
         :
         <>
-          <QuizPage />
+          <QuizPage loading={loading} setLoading={setLoading} />
         </>
       }
     </main>

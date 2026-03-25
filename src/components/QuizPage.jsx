@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import axios from "axios"
 import QuestionCard from "./QuestionCard"
 import { nanoid } from "nanoid"
-import {decode} from 'html-entities';
+import { decode } from 'html-entities';
 
-export default function QuizPage() {
+export default function QuizPage({ loading, setLoading }) {
 
     const [questions, setQuestions] = useState([])
     const [quizVersion, setQuizVersion] = useState(0)
@@ -16,6 +16,7 @@ export default function QuizPage() {
 
 
     useEffect(() => {
+        setLoading(true)
         setAreChecked(false)
         setAnswer([])
         setCorrectQuestions([])
@@ -29,6 +30,8 @@ export default function QuizPage() {
                     }
                 })
             ))
+            .finally(() => setLoading(false));
+
     }, [quizVersion])
 
     function shuffle(answer) {
@@ -45,7 +48,7 @@ export default function QuizPage() {
             [answer[currentIndex], answer[randomIndex]] = [
                 answer[randomIndex], answer[currentIndex]];
         }
-        return(answer);
+        return (answer);
     }
 
     function handleRestart() {
@@ -70,26 +73,30 @@ export default function QuizPage() {
     }
 
     return (
-        <form className="quiz" method="POST" onSubmit={areChecked ? undefined : checkAnswers}>
-            {questions.map(((question, index) =>
-                <QuestionCard key={nanoid()} question={question} questionIndex={index} areChecked={areChecked} selectedAnswer={answers[index]} />
-            ))}
-            <div className="bottom-page">
+        (loading ?
+            <p className="loading">Loading...</p>
+            :
+            <form className="quiz" method="POST" onSubmit={areChecked ? undefined : checkAnswers}>
+                {questions.map(((question, index) =>
+                    <QuestionCard key={nanoid()} question={question} questionIndex={index} areChecked={areChecked} selectedAnswer={answers[index]} />
+                ))}
+                <div className="bottom-page">
 
-                {
-                    areChecked && <p className="score">You scored {correctQuestion.length}/5 answers</p>
-                }
-                <button
-                    className="btn-quiz"
-                    type={areChecked ? "button" : "submit"}
-                    onClick={areChecked ? handleRestart : undefined}
-                >{
-                        (areChecked) ?
-                            "Play again"
-                            :
-                            "Check answers"
-                    }</button>
-            </div>
-        </form>
+                    {
+                        areChecked && <p className="score">You scored {correctQuestion.length}/5 answers</p>
+                    }
+                    <button
+                        className="btn-quiz"
+                        type={areChecked ? "button" : "submit"}
+                        onClick={areChecked ? handleRestart : undefined}
+                    >{
+                            (areChecked) ?
+                                "Play again"
+                                :
+                                "Check answers"
+                        }</button>
+                </div>
+            </form>
+        )
     )
 }

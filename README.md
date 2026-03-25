@@ -96,7 +96,7 @@ Open your browser at `http://localhost:5173`.
 - [x] CSS styling
 - [x] Manage randomized answers order after checking answers
 - [x] Decode HTML entities in questions and answers
-- [ ] Add loading state
+- [x] Add loading state
 - [x] Add Background
 - [ ] a11y
 - [ ] Deploy
