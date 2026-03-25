@@ -17,7 +17,6 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
   min-height: 100vh;
   background-image: url("./assets/background-image.png");
   background-size: cover;
@@ -32,6 +31,7 @@ main {
 }
 .title > h1 {
   margin-bottom: 0.5rem;
+  text-align: center;
   font-family: Karla, sans-serif;
 }
 
@@ -89,10 +89,11 @@ main {
   padding: 0.5rem 0;
 }
 
-.question-card > h2 {
+.question {
   text-align: left;
   padding: 0.5rem 2rem 0.5rem 0rem;
   font-size: 16px;
+  font-weight: 700;
 }
 
 .answers {
@@ -101,6 +102,8 @@ main {
   gap: 1rem;
 }
 
+
+/*#region Answer background*/
 .single-option {
   border: 1px solid #4d5b9e;
   border-radius: 7.94px;
@@ -129,8 +132,6 @@ input[type="radio"] {
 .single-option:has(input[type="radio"]:checked) label {
   color: #293264;
 }
-
-/*#region Answer background*/
 .selected {
   background-color: #d6dbf5;
   border: 0;
@@ -152,3 +153,22 @@ input[type="radio"] {
 /*#endregion Answer background*/
 
 /*#endregion QuestionCard*/
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-inline-size: unset;
+  background: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}

@@ -83,12 +83,13 @@ export default function QuizPage({ loading, setLoading }) {
                 <div className="bottom-page">
 
                     {
-                        areChecked && <p className="score">You scored {correctQuestion.length}/5 answers</p>
+                        areChecked && <p className="score" aria-live="polite">You scored {correctQuestion.length}/5 answers</p>
                     }
                     <button
                         className="btn-quiz"
                         type={areChecked ? "button" : "submit"}
                         onClick={areChecked ? handleRestart : undefined}
+                        aria-label={areChecked ? "Play again" : "Check answers"}
                     >{
                             (areChecked) ?
                                 "Play again"

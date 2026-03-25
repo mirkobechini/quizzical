@@ -98,7 +98,7 @@ Open your browser at `http://localhost:5173`.
 - [x] Decode HTML entities in questions and answers
 - [x] Add loading state
 - [x] Add Background
-- [ ] a11y
+- [x] a11y
 - [ ] Deploy
 
 ---
