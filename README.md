@@ -95,7 +95,8 @@ Open your browser at `http://localhost:5173`.
 - [x] Add new game functionality
 - [x] CSS styling
 - [x] Manage randomized answers order after checking answers
-- [ ] Decode HTML entities in questions and answers
+- [x] Decode HTML entities in questions and answers
+- [ ] Add loading state
 - [ ] Add Background
 - [ ] a11y
 - [ ] Deploy

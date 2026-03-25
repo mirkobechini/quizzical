@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios"
 import QuestionCard from "./QuestionCard"
 import { nanoid } from "nanoid"
+import {decode} from 'html-entities';
 
 export default function QuizPage() {
 
@@ -22,9 +23,9 @@ export default function QuizPage() {
             .then(res => setQuestions(
                 res.data.results.map(question => {
                     return {
-                        question: question.question,
-                        correct_answer: question.correct_answer,
-                        answers: shuffle([question.correct_answer, ...question.incorrect_answers])
+                        question: decode(question.question),
+                        correct_answer: decode(question.correct_answer),
+                        answers: shuffle([decode(question.correct_answer), ...question.incorrect_answers.map(answer => decode(answer))])
                     }
                 })
             ))
