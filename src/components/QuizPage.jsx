@@ -1,32 +1,73 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios"
 import QuestionCard from "./QuestionCard"
 import { nanoid } from "nanoid"
 
-export default function QuizPage({ questions }) {
+export default function QuizPage() {
+
+    const [questions, setQuestions] = useState([])
+    const [quizVersion, setQuizVersion] = useState(0)
 
     const [areChecked, setAreChecked] = useState(false);
-    const [correctAnswerCount, setCorrectAnswerCount] = useState(0)
+
+    const [answers, setAnswer] = useState([]);
+    const [correctQuestion, setCorrectQuestions] = useState([]) //index of question with right answer
+
+
+    useEffect(() => {
+        setAreChecked(false)
+        setAnswer([])
+        setCorrectQuestions([])
+        axios.get("https://opentdb.com/api.php?amount=5&type=multiple")
+            .then(res => setQuestions(
+                res.data.results.map(question => {
+                    return {
+                        question: question.question,
+                        correct_answer: question.correct_answer,
+                        incorrect_answers: question.incorrect_answers
+                    }
+                })
+            ))
+    }, [quizVersion])
+
+    function handleRestart() {
+        setQuizVersion(prevVersion => prevVersion + 1)
+    }
 
     function checkAnswers(e) {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
-        const answers = Array.from(formData.values());
-        console.log(answers);
+        const currentAnswers = Array.from(formData.values());
+        setAnswer(currentAnswers) // ["Paris", "8", "Blue"] index == question index
         let count = 0;
-        answers.forEach((answer, index) => {
-            (answer == questions[index].correct_answer)
+        const createCorrectQuestions = []
+        currentAnswers.forEach((answer, index) => {
+            if (answer == questions[index].correct_answer) {
+                createCorrectQuestions.push(index)
                 count++;
+            }
         })
-        setCorrectAnswerCount(count);
+        setCorrectQuestions(createCorrectQuestions)
         setAreChecked(true);
     }
 
     return (
-        <form className="quiz" method="POST" onSubmit={checkAnswers}>
+        <form className="quiz" method="POST" onSubmit={areChecked ? undefined : checkAnswers}>
             {questions.map(((question, index) =>
-                <QuestionCard key={nanoid()} question={question} questionIndex={index} areChecked={areChecked} />
+                <QuestionCard key={nanoid()} question={question} questionIndex={index} areChecked={areChecked} isCorrect={correctQuestion.includes(index)} selectedAnswer={answers[index]} />
             ))}
-            <button>Check answers</button>
+            {
+                areChecked && <p>You scored {correctQuestion.length}/5 answers</p>
+            }
+            <button
+                type={areChecked ? "button" : "submit"}
+                onClick={areChecked ? handleRestart : undefined}
+            >{
+                    (areChecked) ?
+                        "Play again"
+                        :
+                        "Check answers"
+                }</button>
         </form>
     )
 }

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { nanoid } from "nanoid"
+import clsx from "clsx";
 
-export default function QuestionCard({ question, questionIndex, areChecked }) {
+export default function QuestionCard({ question, questionIndex, areChecked, isCorrect, selectedAnswer }) {
     const [answers, setAnswers] = useState([])
 
     useEffect(() => {
@@ -31,8 +32,17 @@ export default function QuestionCard({ question, questionIndex, areChecked }) {
             <h2>{question.question}</h2>
             <div className="answers" >
                 {answers.map((answer, index) =>
-                    <div key={nanoid()} className="single-option">
-                        <input type="radio" name={questionIndex} id={`${questionIndex} - ${index}`} required={index === 0} value={answer}/>
+                    <div key={nanoid()} className={clsx("single-option", {
+                        wrongAnsw: areChecked && !isCorrect && selectedAnswer === answer,
+                        correctAnsw: areChecked && isCorrect
+                    })}>
+                        <input type="radio"
+                            name={questionIndex}
+                            id={`${questionIndex} - ${index}`}
+                            required={index === 0}
+                            value={answer}
+                            checked={areChecked ? selectedAnswer === answer : undefined}
+                            readOnly={areChecked} />
                         <label htmlFor={`${questionIndex} - ${index}`}>{answer}</label>
                     </div>
                 )}

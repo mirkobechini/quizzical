@@ -90,10 +90,9 @@ Open your browser at `http://localhost:5173`.
 - [x] Question page raw design
 - [x] Display questions and answers
 - [x] Check answers
-- [ ] Store corrected answers
-- [ ] Display results page raw design
-- [ ] Display results
-- [ ] Add new game functionality
+- [x] Store corrected answers
+- [x] Display results page raw design
+- [x] Add new game functionality
 - [ ] CSS styling
 - [ ] a11y
 - [ ] Deploy
