@@ -93,7 +93,8 @@ Open your browser at `http://localhost:5173`.
 - [x] Store corrected answers
 - [x] Display results page raw design
 - [x] Add new game functionality
-- [ ] CSS styling
+- [x] CSS styling
+- [ ] Manage randomized answers order after checking answers
 - [ ] Add Background
 - [ ] a11y
 - [ ] Deploy
