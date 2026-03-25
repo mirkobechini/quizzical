@@ -7,6 +7,7 @@
 body {
   font-family: Inter, sans-serif;
   color: #293264;
+  width: 100%;
 }
 
 main {
@@ -38,3 +39,64 @@ main {
   padding: 0.75rem 3.5rem;
 }
 /*#endregion StartPage*/
+
+/*#region QuizPage*/
+.quiz {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 5rem;
+}
+
+.bottom-page {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 1.5rem;
+}
+
+.bottom-page > p {
+    font-weight: 700;
+    font-size: 12.8px;
+}
+
+.btn-quiz {
+    font-family: Inter, sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    background-color: #4d5b9e;
+    color: #f5f7fb;
+    border: 0;
+    border-radius: 10px;
+    padding: 0.5rem 2rem;
+    margin-top: 1rem;
+    width: fit-content;
+}
+
+/*#endregion QuizPage*/
+
+/*#region QuestionCard*/
+.question-card {
+    border-bottom: 1px solid #DBDEF0;
+    padding: 0.5rem 0;
+}
+
+.question-card > h2 {
+    text-align: left;
+    padding: 0.5rem 2rem 0.5rem 0rem;
+    font-size: 16px;
+}
+
+.answers {
+    padding: 0.5rem 0;
+    display: flex;
+    gap: 1rem;
+    
+}
+
+.single-option {
+    border: 1px solid #4D5B9E;
+    border-radius: 7.94px;
+    padding: 0.25rem 0.5rem;
+}
+/*#endregion QuestionCard*/

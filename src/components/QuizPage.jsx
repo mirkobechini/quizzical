@@ -56,18 +56,22 @@ export default function QuizPage() {
             {questions.map(((question, index) =>
                 <QuestionCard key={nanoid()} question={question} questionIndex={index} areChecked={areChecked} isCorrect={correctQuestion.includes(index)} selectedAnswer={answers[index]} />
             ))}
-            {
-                areChecked && <p>You scored {correctQuestion.length}/5 answers</p>
-            }
-            <button
-                type={areChecked ? "button" : "submit"}
-                onClick={areChecked ? handleRestart : undefined}
-            >{
-                    (areChecked) ?
-                        "Play again"
-                        :
-                        "Check answers"
-                }</button>
+            <div className="bottom-page">
+
+                {
+                    areChecked && <p className="score">You scored {correctQuestion.length}/5 answers</p>
+                }
+                <button
+                    className="btn-quiz"
+                    type={areChecked ? "button" : "submit"}
+                    onClick={areChecked ? handleRestart : undefined}
+                >{
+                        (areChecked) ?
+                            "Play again"
+                            :
+                            "Check answers"
+                    }</button>
+            </div>
         </form>
     )
 }
