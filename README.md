@@ -22,7 +22,7 @@ This project is a quiz game built with React. It fetches trivia questions from t
 
 ## 🌍 Demo
 
-- Live: https://mirkobechini.github.io/quizzical/ <!-- Not deployed yet -->
+- Live: https://mirkobechini.github.io/quizzical/
 
 ---
 
@@ -35,6 +35,7 @@ This project is a quiz game built with React. It fetches trivia questions from t
 - **OTDB API**: Online Trivia Database API
 - **html-entities**: Decode HTML entities
 - **axios**: Fetch data from API
+- **clsx**: Conditional classNames
 
 ---
 
@@ -99,7 +100,7 @@ Open your browser at `http://localhost:5173`.
 - [x] Add loading state
 - [x] Add Background
 - [x] a11y
-- [ ] Deploy
+- [x] Deploy
 
 ---
 
