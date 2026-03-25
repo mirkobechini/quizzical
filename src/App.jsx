@@ -27,7 +27,6 @@ function App() {
 
   function handleStartQuiz() {
     setHasStarted(true);
-    // qui puoi anche fare il fetch (meglio con loading/error)
   }
 
   return (

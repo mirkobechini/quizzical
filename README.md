@@ -89,10 +89,13 @@ Open your browser at `http://localhost:5173`.
 - [x] Fetch questions from API
 - [x] Question page raw design
 - [x] Display questions and answers
-- [ ] Check answers and display results page raw design
+- [x] Check answers
+- [ ] Store corrected answers
+- [ ] Display results page raw design
 - [ ] Display results
 - [ ] Add new game functionality
 - [ ] CSS styling
+- [ ] a11y
 - [ ] Deploy
 
 ---

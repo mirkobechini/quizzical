@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { nanoid } from "nanoid"
 
-export default function QuestionCard({ question }) {
+export default function QuestionCard({ question, questionIndex, areChecked }) {
     const [answers, setAnswers] = useState([])
 
-    useEffect(()=>{
+    useEffect(() => {
         shuffle()
     }, [])
 
@@ -28,9 +29,12 @@ export default function QuestionCard({ question }) {
     return (
         <section className="question-card">
             <h2>{question.question}</h2>
-            <div className="answers">
-                {answers.map(answer => 
-                <button key={answer}>{answer}</button>
+            <div className="answers" >
+                {answers.map((answer, index) =>
+                    <div key={nanoid()} className="single-option">
+                        <input type="radio" name={questionIndex} id={`${questionIndex} - ${index}`} required={index === 0} value={answer}/>
+                        <label htmlFor={`${questionIndex} - ${index}`}>{answer}</label>
+                    </div>
                 )}
             </div>
         </section>
