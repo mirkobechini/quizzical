@@ -9,7 +9,6 @@ This project is a quiz game built with React. It fetches trivia questions from t
 4. Click "Play again" to start a new quiz.
 
 
-![Preview](./readme-images/Quizzical_Preview.png)
 ![App requirements](./readme-images/requirements.png)
 
 🔗 Design in Figma: [Link](https://www.figma.com/design/E9S5iPcm10f0RIHK8mCqKL/Quizzical-App?node-id=0-1&p=f&t=0MskgYslEu27OHJx-0)
