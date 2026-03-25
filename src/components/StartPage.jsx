@@ -1,11 +1,11 @@
-export default function StartPage() {
+export default function StartPage({onStart}) {
     return (
-        <main>
+        <>
             <section className="title">
                 <h1>Quizzcal</h1>
                 <p>Some description if needed</p>
             </section>
-            <button className="btn-start">Start quiz</button>
-        </main>
+            <button className="btn-start" onClick={onStart}>Start quiz</button>
+        </>
     )
 }

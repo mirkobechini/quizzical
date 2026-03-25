@@ -34,6 +34,7 @@ This project is a quiz game built with React. It fetches trivia questions from t
 - **Figma**: Design
 - **OTDB API**: Online Trivia Database API
 - **html-entities**: Decode HTML entities
+- **axios**: Fetch data from API
 
 ---
 
@@ -85,9 +86,9 @@ Open your browser at `http://localhost:5173`.
 ## 🗺️ Roadmap
 
 - [x] First page raw design
-- [ ] Fetch questions from API
-- [ ] Question page raw design
-- [ ] Display questions and answers
+- [x] Fetch questions from API
+- [x] Question page raw design
+- [x] Display questions and answers
 - [ ] Check answers and display results page raw design
 - [ ] Display results
 - [ ] Add new game functionality
