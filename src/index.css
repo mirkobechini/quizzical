@@ -97,6 +97,20 @@ main {
 .single-option {
     border: 1px solid #4D5B9E;
     border-radius: 7.94px;
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem 0.75rem;
+}
+
+.wrongAnswer {
+    background-color: #F8BCBC;
+    border: 0;
+}
+
+.correctAnswer {
+    background-color: #94D7A2;
+    border: 0;
+}
+
+.disabled {
+    opacity: 0.5;
 }
 /*#endregion QuestionCard*/

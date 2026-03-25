@@ -54,7 +54,7 @@ export default function QuizPage() {
     return (
         <form className="quiz" method="POST" onSubmit={areChecked ? undefined : checkAnswers}>
             {questions.map(((question, index) =>
-                <QuestionCard key={nanoid()} question={question} questionIndex={index} areChecked={areChecked} isCorrect={correctQuestion.includes(index)} selectedAnswer={answers[index]} />
+                <QuestionCard key={nanoid()} question={question} questionIndex={index} areChecked={areChecked} selectedAnswer={answers[index]} />
             ))}
             <div className="bottom-page">
 
