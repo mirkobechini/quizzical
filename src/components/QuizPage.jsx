@@ -24,11 +24,28 @@ export default function QuizPage() {
                     return {
                         question: question.question,
                         correct_answer: question.correct_answer,
-                        incorrect_answers: question.incorrect_answers
+                        answers: shuffle([question.correct_answer, ...question.incorrect_answers])
                     }
                 })
             ))
     }, [quizVersion])
+
+    function shuffle(answer) {
+        let currentIndex = answer.length;
+
+        // While there remain elements to shuffle...
+        while (currentIndex != 0) {
+
+            // Pick a remaining element...
+            let randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            // And swap it with the current element.
+            [answer[currentIndex], answer[randomIndex]] = [
+                answer[randomIndex], answer[currentIndex]];
+        }
+        return(answer);
+    }
 
     function handleRestart() {
         setQuizVersion(prevVersion => prevVersion + 1)

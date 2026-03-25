@@ -94,7 +94,8 @@ Open your browser at `http://localhost:5173`.
 - [x] Display results page raw design
 - [x] Add new game functionality
 - [x] CSS styling
-- [ ] Manage randomized answers order after checking answers
+- [x] Manage randomized answers order after checking answers
+- [ ] Decode HTML entities in questions and answers
 - [ ] Add Background
 - [ ] a11y
 - [ ] Deploy
