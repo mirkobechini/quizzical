@@ -8,6 +8,8 @@ body {
   font-family: Inter, sans-serif;
   color: #293264;
   width: 100%;
+  margin: 0 auto;
+  background-color: #f5f7fb;
 }
 
 main {
@@ -17,6 +19,10 @@ main {
   align-items: center;
   text-align: center;
   min-height: 100vh;
+  background-image: url("./assets/background-image.png");
+  background-size: cover;
+  background-position: center;
+
 }
 /*#endregion Global Styles*/
 
