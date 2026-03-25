@@ -94,6 +94,7 @@ Open your browser at `http://localhost:5173`.
 - [x] Display results page raw design
 - [x] Add new game functionality
 - [ ] CSS styling
+- [ ] Add Background
 - [ ] a11y
 - [ ] Deploy
 
